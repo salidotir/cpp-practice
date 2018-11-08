@@ -12,59 +12,24 @@ private:
 	double _width;
 public:
 	Rectangle();
-	Rectangle(double l, double w)
-	{
-		if (l > w)
-		{
-			_length = l;
-			_width = w;
-		}
-		else {
-			cout << "Width can not be less than length. Please try again." << endl;
-			Rectangle::~Rectangle();
-		}
-	}
+	
+	Rectangle(double l, double w);
+
 	~Rectangle();
 
-	void SetProperties()
-	{
-		double l;
-		double w;
-		int flag = 1;
-		while (flag == 1)
-		{
-			cout << "PLease enter length : ";
-			cin >> l;
-			cout << endl;
-			cout << "Please enter width : ";
-			cin >> w;
-			if (l > w) {
-				flag = 0;
-				_length = l;
-				_width = w;
-			}
-			else {
-				cout << "Width can not be less than length. Please try again." << endl;
-			}
-		}
-	}
+	void SetProperties(double l, double w);
 
-	
+	void SetWidth(double w);
 
-	double GetArea()
-	{
-		return _length*_width;
-	}
+	void SetLength(double l);
 
-	void Draw()
-	{
-		cout << "***************************" << endl;
-		cout << "This is a rectangle as below:" << endl;
-		cout << "length : " << _length << "	" << "width : " << _width << endl;
-		cout << "***************************" << endl;
-	}
+	double GetLength();
+
+	double GetWidth();
+
+	double GetArea();
+
+	void Draw();
 };
-
-
 
 #endif // !RECTANGLE_H

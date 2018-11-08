@@ -2,10 +2,11 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 #include <iostream>
+#include "Shape.h"
 
 using namespace std;
 
-class Rectangle: protected Shape
+class Triangle: protected Shape
 {
 private:
 	double _height;

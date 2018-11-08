@@ -4,6 +4,7 @@
 
 #define pi 3.14
 #include <iostream>
+#include "Shape.h"
 
 using namespace std;
 

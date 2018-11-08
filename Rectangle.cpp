@@ -11,7 +11,6 @@ Rectangle::Rectangle(double l, double w)
 	}
 	else {
 		cout << "Width can not be less than length. Failed to make instance." << endl;
-		Rectangle::~Rectangle();
 	}
 }
 

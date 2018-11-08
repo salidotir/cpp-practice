@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Rectangle
+class Rectangle: protected Shape
 {
 private:
 	double _length;

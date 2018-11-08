@@ -17,3 +17,40 @@ void Circle::Draw()
 	cout << "radius : " << _r << "	" << "center : (" << _x << "," << _y << ")" << endl;
 	cout << "***************************" << endl;
 }
+
+void Circle::SetProperties(double x, double y, double r)
+{
+	_x = x;
+	_y = y;
+	_r = r;
+}
+
+void Circle::SetX(double x)
+{
+	_x = x;
+}
+
+void Circle::SetY(double y)
+{
+	_y = y;
+}
+
+void Circle::SetR(double r)
+{
+	_r = r;
+}
+
+double Circle::GetX()
+{
+	return _x;
+}
+
+double Circle::GetY()
+{
+	return _y;
+}
+
+double Circle::GetR()
+{
+	return _r;
+}

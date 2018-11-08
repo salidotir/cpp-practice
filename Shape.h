@@ -8,8 +8,6 @@ using namespace std;
 
 class Shape
 {
-private:
-	double	_area;
 public:
 	virtual double FindArea() = 0;
 	virtual	void Draw() = 0;

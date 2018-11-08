@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Circle
+class Circle: protected Shape
 {
 private:
 	double _x;
@@ -28,6 +28,13 @@ public:
 	Circle(double x, double y, double r);
 	~Circle();														// default destructor
 
+	void SetProperties(double x, double y, double r);
+	void SetX(double x);
+	void SetY(double y);
+	void SetR(double r);
+	double GetX();
+	double GetY();
+	double GetR();
 	double GetArea();
 	void Draw();
 };

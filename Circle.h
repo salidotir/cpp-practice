@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Circle: protected Shape
+class Circle: public Shape
 {
 private:
 	double _x;

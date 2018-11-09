@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Triangle: protected Shape
+class Triangle: public Shape
 {
 private:
 	double _height;

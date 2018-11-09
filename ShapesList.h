@@ -2,6 +2,7 @@
 #ifndef SHAPESLIST_H
 #define SHAPESLIST_H
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include "Shape.h"
 #include "Circle.h"
@@ -40,11 +41,20 @@ public:
 		return _list.size();
 	}
 
-	//auto FindShape(Shape* s)
-	//{
-	//	auto iter = find(_list.begin(), _list.end(), *s);
-	//	return iter;
-	//}
+	void FindShapesBasedOnArea(double a)
+	{
+		int index;
+		for (auto iter = _list.begin(); iter != _list.end(); iter++) {
+			if ((*iter)->GetArea() == a)
+			{
+				cout << endl << endl;
+				int index = std::distance(_list.begin(), iter);
+				cout << "index = " << index << endl;
+				(*iter)->Draw();
+				cout << endl << endl;
+			}
+		}
+	}
 
 	void Print()
 	{
@@ -54,18 +64,18 @@ public:
 		}
 	}
 
-	//void Sort()
-	//{
-	//	for (auto iter1 = _list.begin()+1; iter1 != _list.end(); iter1++) {
-	//		for (auto iter2 = _list.begin()+1; iter2 != _list.end(); iter2++) {
-	//			if ((*iter2)->GetArea() > (*(iter2 + 1))->GetArea()) {
-	//				Shape* tmp = *iter1;
-	//				*iter1 = *iter2;
-	//				*iter2 = tmp;
-	//			}
-	//		}
-	//	}
-	//}
+	struct {
+		bool operator()(Shape* a, Shape* b) const
+		{
+			return a->GetArea() > b->GetArea();
+		}
+	} order;
+
+	void Sort()
+	{
+		std::sort(_list.begin(), _list.end(), order);
+	}
+
 };
 
 #endif // !SHAPESLIST_H

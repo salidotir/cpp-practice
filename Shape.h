@@ -9,7 +9,7 @@ using namespace std;
 class Shape
 {
 public:
-	virtual double FindArea() = 0;
+	virtual double GetArea() = 0;
 	virtual	void Draw() = 0;
 };
 

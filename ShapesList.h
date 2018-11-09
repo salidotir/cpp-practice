@@ -3,6 +3,7 @@
 #define SHAPESLIST_H
 #include <iostream>
 #include <algorithm>
+#include <functional>
 #include <vector>
 #include "Shape.h"
 #include "Circle.h"
@@ -23,18 +24,24 @@ public:
         cout << "Shape added to list." << endl;
     }
 
-  //  void RemoveShape(Shape* s)
-  //  {
-  //      for (auto iter = _list.begin(); iter != _list.end(); iter++) {
-		//	if (*iter == s) {
-		//		iter = find(_list.begin(), _list.end(), *s);
-		//		_list.erase(iter);
-  //              cout << "Shape removed from list." << endl;
-		//		return;
-		//	}
-		//}
-  //      cout << "Could not find shape to remove." << endl;
-  //  }
+    void RemoveShapeBasedOnArea(double s)			// removes the first shape find in the list with area s		
+    {
+		int index;
+		int flag = 1;
+        for (auto iter = _list.begin(); iter != _list.end(); iter++) {
+			if ((*iter)->GetArea() == s)
+			{
+				flag = 0;
+				index = distance(_list.begin(), iter);
+				_list.erase(iter);
+                cout << "Shape on index " << index << " removed from list." << endl;
+				break;
+			}
+		}
+		if (flag == 1) {
+			cout << "Could not find shape to remove." << endl;
+		}
+    }
 
 	int Size()
 	{
@@ -58,7 +65,7 @@ public:
 
 	void Print()
 	{
-		cout << endl << endl << "Shapes List" << endl << endl;
+		cout << endl << endl << "Shapes List" << endl;
 		for (auto iter = _list.begin(); iter != _list.end(); iter++) {
 			(*iter)->Draw();
 		}
